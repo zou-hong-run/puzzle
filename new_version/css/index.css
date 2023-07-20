@@ -1,0 +1,208 @@
+* {
+    margin: 0;
+    padding: 0;
+    /* 比如输入框选中时候的边框 */
+    outline: none;
+
+    font-family: "Arial", sans-serif;
+    color: #282828;
+    /* 下划线 */
+    text-decoration: none;
+    /* 列表前面的 点 */
+    list-style-type: none;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background: url("../pic/坤坤1.gif");
+    background-size: 100% 100%;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* 公用样式 */
+#start {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+}
+
+#end {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    mix-blend-mode:luminosity;
+}
+
+.box {
+    border-radius: 15px;
+    padding: 40px;
+    margin: 40px 40px;
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
+    text-align: center;
+    background-color: #F2F2F2;
+}
+
+/* 游戏开始 */
+#start .group {
+    margin-top: 20px;
+}
+
+#start .group input,
+#start .group select {
+    width: 99%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+
+#start .group label {
+    text-transform: uppercase;
+    font-size: 15px;
+    text-align: left;
+}
+
+#start .group button {
+    width: 100%;
+    height: 60px;
+}
+
+/* 选择上传图片功能 */
+#start #drop {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: dotted 1px rgba(0, 0, 0, 0.2);
+}
+
+#start #drop p {
+    width: calc(100% - 100px);
+}
+
+#start .preview {
+    position: relative;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+
+#start .preview img {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    left: 0;
+}
+
+#start .preview input {
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    opacity: 0;
+}
+
+/* 游戏内容区域 */
+#game_container {
+    width: 100%;
+    height: 100%;
+    background-color: #009BBC;
+    padding: 70px 50px 50px;
+    text-align: center;
+
+}
+
+#game_container>span {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    background-color: white;
+    ;
+}
+
+#game_container #timer span {
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    background-color: #004D5E;
+}
+
+/* 拼图区域 */
+#puzzle_container {
+
+    height: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#puzzle_container #puzzle {
+    width: 300px;
+    height: 300px;
+    border: dotted 1px black;
+    position: relative;
+}
+
+#puzzle_container #puzzle_map {
+    border-radius: 0;
+    flex: 1;
+    height: 300px;
+    border: dotted 1px rgb(0, 0, 0);
+}
+
+#puzzle_container #puzzle_destionation {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border: dotted 1px black;
+}
+
+#game_container .buttons button {
+    width: 100%;
+    height: 30px;
+}
+
+/* 游戏结束 */
+#end {
+    width: 100%;
+    height: 100%;
+}
+
+#end h3 {
+    text-align: center;
+}
+
+#end p {
+    text-align: center;
+}
+
+#end table {
+
+    width: 100%;
+    /* 共享边框 */
+    border-collapse: collapse;
+}
+
+#end table th,
+td {
+    padding: 10px;
+    border: solid 1px rgb(0, 0, 0, 0.2);
+}
+
+#end button {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+}

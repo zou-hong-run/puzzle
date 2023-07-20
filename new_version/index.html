@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽拼图</title>
+    <script src="./utils/confetti.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="start" class="">
+        <div class="box">
+            <h1>欢迎玩家</h1>
+            <p>请创建的你的游戏信息</p>
+            <div class="form">
+                <!-- 标题 -->
+                <div class="group">
+                    <label for="nickname">玩家昵称</label>
+                    <input type="text" value="red润" id="nickname" name="nickname">
+                </div>
+                <!-- 难度 -->
+                <div class="group">
+                    <label for="difficult">
+                        难度
+                    </label>
+                    <select name="difficult" id="difficult">
+                        <option value="">请选择难度</option>
+                        <option value="3">简单</option>
+                        <option value="5">一般</option>
+                        <option value="7">困难</option>
+                        <option value="9">地狱</option>
+                        <option value="11">天堂</option>
+                        <option value="15">不要尝试的难度</option>
+                    </select>
+                </div>
+                <!-- 放入图片 -->
+                <div class="group" id="drop">
+                    <div class="preview">
+                        <img src="./pic/upload.png" alt="放入拼图">
+                        <input type="file" name="pic" id="pic" accept="image/gif, image/jpeg ,image/png">
+                    </div>
+                    <p>点击加号（选择你要放入的图片）</p>
+                </div>
+                <div class="group">
+                    <button name="submit">
+                        开始(请先上传图片)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game_container" class="hidden">
+        <span>用户名</span>
+        <div id="timer">
+            <span>00:00</span>
+        </div>
+        <div id="puzzle_container">
+            <div id="puzzle"></div>
+            <div id="puzzle_map"></div>
+            <div id="puzzle_destionation"></div>
+        </div>
+        <div class="buttons">
+            <button class="stop">暂停</button>
+            <button class="restart">重新开始</button>
+        </div>
+    </div>
+    <div id="end" class="hidden">
+        <div class="box" style="overflow: scroll;">
+            <h3>拼图完成</h3>
+            <p>游戏胜利！</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>排名</th>
+                        <th>难度</th>
+                        <th>用户名</th>
+                        <th>游戏时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>不要尝试的难度</td>
+                        <td>red润</td>
+                        <td>11:11::23</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button onclick="document.querySelector('#end').classList.add('hidden'),document.querySelector('#start').classList.remove('hidden')">再来亿遍</button>
+        </div>
+    </div>
+    <script type="module">
+        import Main from "./index.js"
+        new Main()
+    </script>
+</body>
+
+</html>
