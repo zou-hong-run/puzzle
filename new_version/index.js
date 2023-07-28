@@ -53,23 +53,22 @@ export default class Main {
         this.puzzleMap = document.querySelector('#puzzle_map')
         // 右边拼图块
         this.puzzleDestionation = document.querySelector("#puzzle_destionation")
+        // 烟花
+        this.jsConfetti = new JSConfetti()
 
         this.init()
     }
-    init() {
+    initConfetti(i = 1){
         // 烟花
-        this.jsConfetti = new JSConfetti()
-        const addFire = (i = 1) => {
-            for (i; i > 0; i--) {
-                setTimeout(() => {
-                    this.jsConfetti.addConfetti()
-
-                    
-                }, i * 500)
-            }
+        for (i; i > 0; i--) {
+            setTimeout(() => {
+                this.jsConfetti.addConfetti()
+            }, i * 500)
         }
-        addFire(11)
-
+    }
+    init() {
+        // 初始化烟花
+        this.initConfetti(11)
         console.log("游戏初始化");
         // 初始化排行榜
         this.initRank()
@@ -86,9 +85,7 @@ export default class Main {
         // 监听是否点击游戏暂停按钮
         this.addEventListenerIsStop()
         // 监听是否重新游戏
-        this.gameRestartBtn.addEventListener("click", () => {
-            this.restartGame()
-        })
+        this.addEventListenerIsReStartBtn()
 
     }
     initRank() {
@@ -128,6 +125,12 @@ export default class Main {
         }
         tbody.innerHTML = objs
 
+    }
+    // 监听是否点击重新游戏按钮
+    addEventListenerIsReStartBtn(){
+        this.gameRestartBtn.addEventListener("click", () => {
+            this.restartGame()
+        })
     }
     // 监听用户是否点击上传图片，将上传的图片存储下来
     addEventListenerStartPicChange() {
